@@ -1,38 +1,15 @@
-.App {
+.footer {
   text-align: center;
+  padding: 1rem;
+  background-color: rgba(51, 50, 50, 0.434);
+  display: block;
+  min-width: 100vw;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.register_form {
+  width: 450px;
+  padding: 1rem;
+  margin: 2rem auto 2rem;
+  border: 2px solid rgba(37, 36, 36, 0.501);
+  border-radius:10px;
+  box-shadow:10px 10px 10px 5px rgba(55, 54, 54, 0.262)
 }
