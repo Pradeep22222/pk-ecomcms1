@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../components/header/Header";
 import { Footer } from "../../components/footer/Footer";
 import Form from "react-bootstrap/Form";
@@ -6,6 +6,16 @@ import Button from "react-bootstrap/Button";
 
 import { CustomInputField } from "../../components/customInputField/CustomInputField";
 const Register = () => {
+  const [user, setUser] = useState({});
+  const handleOnChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setUser({...user, [name]: value });
+  };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+  };
   const fields = [
     {
       label: "First Name",
@@ -68,9 +78,13 @@ const Register = () => {
   return (
     <div>
       <Header></Header>
-      <Form className="register_form">
+      <Form className="register_form" onSubmit={handleOnSubmit}>
         {fields.map((item, i) => (
-          <CustomInputField key={i} {...item}></CustomInputField>
+          <CustomInputField
+            key={i}
+            {...item}
+            onChange={handleOnChange}
+          ></CustomInputField>
         ))}
         <Button variant="primary" type="submit">
           Submit
