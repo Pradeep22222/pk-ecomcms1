@@ -3,18 +3,25 @@ import { Header } from "../../components/header/Header";
 import { Footer } from "../../components/footer/Footer";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
+import { Alert } from "react-bootstrap";
 import { CustomInputField } from "../../components/customInputField/CustomInputField";
+import { postUser } from "./../../helpers/axiosHelper.js";
 const Register = () => {
   const [user, setUser] = useState({});
+  const [response, setResponse] = useState({});
   const handleOnChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    setUser({...user, [name]: value });
+    setUser({ ...user, [name]: value });
   };
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async(e) => {
     e.preventDefault();
-    console.log(user);
+    const { confirmPassword, ...rest } = user;
+    if (confirmPassword !== rest.password) {
+      return alert("passwords didn't match");
+    }
+    const result = await postUser(rest);
+    setResponse(result);
   };
   const fields = [
     {
@@ -41,7 +48,7 @@ const Register = () => {
     },
     {
       label: "Mobile",
-      name: "mobile",
+      name: "phone",
       type: "number",
       placeholder: "0451644397",
       required: true,
@@ -62,7 +69,7 @@ const Register = () => {
     },
     {
       label: "Password",
-      name: "passsword",
+      name: "password",
       type: "password",
       placeholder: "*********",
       required: true,
@@ -79,6 +86,12 @@ const Register = () => {
     <div>
       <Header></Header>
       <Form className="register_form" onSubmit={handleOnSubmit}>
+        {response.message && (
+          <Alert
+            variant={response.status === "success" ? "success" : "danger"}
+          >{response.message}</Alert>
+        )}
+
         {fields.map((item, i) => (
           <CustomInputField
             key={i}
