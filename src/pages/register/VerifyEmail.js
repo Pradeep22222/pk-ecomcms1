@@ -40,7 +40,7 @@ const VerifyEmail = () => {
               Loading...
             </Button>
           )}
-          <Alert variant={response.message==="success"?"success":"danger"}>{response.message}</Alert>
+          <Alert variant={response.status==="success"?"success":"danger"}>{response.message}</Alert>
         </Card>
       </Container>
       <Footer></Footer>

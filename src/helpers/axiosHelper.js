@@ -26,7 +26,7 @@ export const postUser = (data) => {
 };
 export const verifyUser = (data) => {
   const option = {
-    method: "post",
+    method: "patch",
     url: adminUserEp + "/verify-email",
     data,
   };
