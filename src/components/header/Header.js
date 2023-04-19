@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <div>
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar bg="primary" variant="dark" expand="lg" className="header">
         <Container>
           <Navbar.Brand href="#home">PK-ECOM</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

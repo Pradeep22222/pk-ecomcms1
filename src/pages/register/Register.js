@@ -3,7 +3,7 @@ import { Header } from "../../components/header/Header";
 import { Footer } from "../../components/footer/Footer";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Alert } from "react-bootstrap";
+import { Alert, Container } from "react-bootstrap";
 import { CustomInputField } from "../../components/customInputField/CustomInputField";
 import { postUser } from "./../../helpers/axiosHelper.js";
 const Register = () => {
@@ -14,7 +14,7 @@ const Register = () => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-  const handleOnSubmit = async(e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     const { confirmPassword, ...rest } = user;
     if (confirmPassword !== rest.password) {
@@ -85,24 +85,29 @@ const Register = () => {
   return (
     <div>
       <Header></Header>
-      <Form className="register_form" onSubmit={handleOnSubmit}>
-        {response.message && (
-          <Alert
-            variant={response.status === "success" ? "success" : "danger"}
-          >{response.message}</Alert>
-        )}
+      <Container className="page-main">
+        <Form className="register_form" onSubmit={handleOnSubmit}>
+          {response.message && (
+            <Alert
+              variant={response.status === "success" ? "success" : "danger"}
+            >
+              {response.message}
+            </Alert>
+          )}
 
-        {fields.map((item, i) => (
-          <CustomInputField
-            key={i}
-            {...item}
-            onChange={handleOnChange}
-          ></CustomInputField>
-        ))}
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+          {fields.map((item, i) => (
+            <CustomInputField
+              key={i}
+              {...item}
+              onChange={handleOnChange}
+            ></CustomInputField>
+          ))}
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Container>
+
       <Footer></Footer>
     </div>
   );

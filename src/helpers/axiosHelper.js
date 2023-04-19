@@ -24,3 +24,11 @@ export const postUser = (data) => {
   };
   return apiProcessor(option);
 };
+export const verifyUser = (data) => {
+  const option = {
+    method: "post",
+    url: adminUserEp + "/verify-email",
+    data,
+  };
+  return apiProcessor(option);
+};

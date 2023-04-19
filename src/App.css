@@ -1,3 +1,6 @@
+.page-main {
+  min-height: 70vh;
+}
 .footer {
   text-align: center;
   padding: 1rem;
@@ -10,6 +13,20 @@
   padding: 1rem;
   margin: 2rem auto 2rem;
   border: 2px solid rgba(37, 36, 36, 0.501);
-  border-radius:10px;
-  box-shadow:10px 10px 10px 5px rgba(55, 54, 54, 0.262)
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 5px rgba(55, 54, 54, 0.262);
+}
+.verify_email-card {
+  width: 45rem;
+}
+.centering {
+  display:block;
+  position: absolute;
+  margin-top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header {
+  position: fixed;
+  top: 0;
 }
