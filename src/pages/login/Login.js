@@ -22,6 +22,7 @@ const Login = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUserAction(form));
+    console.log(form);
   };
   return (
     <div>
