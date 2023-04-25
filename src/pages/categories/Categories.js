@@ -1,10 +1,10 @@
 import React from 'react'
 import { AdminLayout } from '../../components/admin-layout/AdminLayout'
 
-const Dashboard = () => {
+const Categories = () => {
   return (
-    <AdminLayout >Dashboard</AdminLayout>
+    <AdminLayout>Categories</AdminLayout>
   )
 }
 
-export default Dashboard
+export default Categories
