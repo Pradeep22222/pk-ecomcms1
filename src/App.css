@@ -8,6 +8,7 @@
   display: block;
   min-width: 100vw;
 }
+
 .register_form {
   width: 450px;
   padding: 1rem;
@@ -20,7 +21,7 @@
   width: 45rem;
 }
 .centering {
-  display:block;
+  display: block;
   position: absolute;
   margin-top: 25%;
   left: 50%;
@@ -29,4 +30,12 @@
 .header {
   position: fixed;
   top: 0;
+}
+.admin_mainbody {
+  min-height: 80vh;
+}
+.hamburger_header {
+  color: white;
+  margin-right: 1rem;
+  font-size: 2rem;
 }

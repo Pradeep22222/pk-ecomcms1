@@ -11,5 +11,6 @@ export const loginUserAction = (data) => async (dispatch) => {
     sessionStorage.setItem("accessJWT", accessJWT);
     localStorage.setItem("refreshJWT", refreshJWT);
     dispatch(setAdminUser(user));
+    console.log(accessJWT, refreshJWT);
   }
 };

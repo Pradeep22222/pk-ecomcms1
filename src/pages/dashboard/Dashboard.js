@@ -1,8 +1,9 @@
 import React from 'react'
+import { AdminLayout } from '../../components/admin-layout/AdminLayout'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <AdminLayout>Dashboard</AdminLayout>
   )
 }
 
