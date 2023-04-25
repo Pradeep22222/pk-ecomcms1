@@ -4,17 +4,21 @@ import { Footer } from "../../components/footer/Footer.js";
 import { Button, Container, Form } from "react-bootstrap";
 import { CustomInputField } from "../../components/customInputField/CustomInputField.js";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loginUserAction } from "./UserAction.js";
 
 const Login = () => {
   const [form, setForm] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useSelector((state) => state.admin);
+  const path =
+    (location.state && location.state.from && location.state.from.pathname) ||
+    "/dashboard";
   useEffect(() => {
-    user?._id && navigate("/dashboard");
-  }, [user, navigate]);
+    user?._id && navigate(path);
+  }, [user, navigate, path]);
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
